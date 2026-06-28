@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  /* Brownstown Minutes design tokens */
+  --paper: #F7F4EC;
+  --paper-raised: #FFFFFF;
+  --ink: #1C2B33;
+  --ink-soft: #4A5A62;
+  --harbor: #2B4C5C;
+  --harbor-deep: #1E3640;
+  --brass: #B8862E;
+  --brass-soft: #D4A94F;
+  --mist: #E4E9E8;
+  --moss: #5C7A6B;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-harbor: var(--harbor);
+  --color-harbor-deep: var(--harbor-deep);
+  --color-brass: var(--brass);
+  --color-brass-soft: var(--brass-soft);
+  --color-mist: var(--mist);
+  --color-moss: var(--moss);
+  --font-serif: var(--font-source-serif);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
