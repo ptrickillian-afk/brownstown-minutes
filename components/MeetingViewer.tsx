@@ -34,20 +34,28 @@ export default function MeetingViewer({ meeting }: { meeting: Meeting }) {
         </div>
       )}
 
-      {tab === "read" || !hasAudio ? (
-        <article className="rounded-lg border border-mist bg-paper-raised p-7 sm:p-9">
-          {meeting.minutes_text ? (
-            <div className="whitespace-pre-wrap text-[15px] leading-7 text-ink font-[450]">
-              {meeting.minutes_text}
-            </div>
-          ) : (
-            <p className="text-ink-soft italic">
-              Minutes for this meeting are not yet available.
-            </p>
-          )}
-        </article>
-      ) : (
-        <div className="rounded-lg border border-mist bg-paper-raised p-7 sm:p-9">
+      <article
+        className={`rounded-lg border border-mist bg-paper-raised p-7 sm:p-9 ${
+          tab === "read" || !hasAudio ? "" : "hidden"
+        }`}
+      >
+        {meeting.minutes_text ? (
+          <div className="whitespace-pre-wrap text-[15px] leading-7 text-ink font-[450]">
+            {meeting.minutes_text}
+          </div>
+        ) : (
+          <p className="text-ink-soft italic">
+            Minutes for this meeting are not yet available.
+          </p>
+        )}
+      </article>
+
+      {hasAudio && (
+        <div
+          className={`rounded-lg border border-mist bg-paper-raised p-7 sm:p-9 ${
+            tab === "listen" ? "" : "hidden"
+          }`}
+        >
           <h2 className="font-serif text-lg font-semibold text-harbor-deep mb-1">
             Brownstown Recap
           </h2>
@@ -55,7 +63,13 @@ export default function MeetingViewer({ meeting }: { meeting: Meeting }) {
             A friendly two-host summary of this meeting's key decisions and
             discussions.
           </p>
-          <audio controls className="w-full" src={meeting.audio_url ?? undefined}>
+          <audio
+            key={meeting.audio_url}
+            controls
+            preload="metadata"
+            className="w-full"
+          >
+            <source src={meeting.audio_url ?? undefined} type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
 
