@@ -38,9 +38,7 @@ export default async function Home() {
           read or heard — your choice.
         </h1>
         <p className="text-ink-soft text-lg max-w-2xl">
-          Official minutes and a friendly recap podcast from every Brownstown
-          Charter Township board meeting, kept here for any resident to read
-          or listen to.
+          Draft minutes and a friendly recap podcast from every Brownstown Charter Township board meeting, kept here for any resident to read or listen to. Minutes remain drafts until the Board approves them, and the approved minutes from the township are the official record.
         </p>
       </section>
 
