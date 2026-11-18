@@ -1,6 +1,10 @@
 import { supabase } from "@/lib/supabase";
 import type { Meeting } from "@/lib/supabase";
 import MeetingCard from "@/components/MeetingCard";
+// Always load the latest meetings from the database on each visit,
+// instead of showing a copy frozen at the last deploy.
+export const dynamic = "force-dynamic";
+
 
 async function getMeetings() {
   const { data, error } = await supabase
